@@ -1,0 +1,7 @@
+**
+!Dockerfile
+!nginx/
+!nginx/lantern.conf
+!site/
+!site/index.html
+!site/health.json

@@ -1,0 +1,13 @@
+name: lantern-check
+services:
+  web:
+    build: .
+    image: ${LANTERN_IMAGE:-lantern-web:lab}
+    container_name: ${LANTERN_CONTAINER:-lantern-web}
+    ports:
+      - "127.0.0.1:${LANTERN_PORT:-8592}:8000"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8000/health.json"]
+      interval: 1s
+      timeout: 2s
+      retries: 8
